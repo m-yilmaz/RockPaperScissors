@@ -10,14 +10,10 @@ namespace RockPaperScissorsV2
     {
         static void Main(string[] args)
         {
-            //Kullanıcıdan rock için r , paper için p , scissors için s tuşlamasını isteyiniz. r için => R yada rock olma durumunda da r kabul ediniz. exit için ise e yada E/exit tuşlasın.
-            //Kullanıcı çıkış tuşuna basmadığı sürece giriş yaptığı ve bilgisayarında rastgele bir seçim yaparak her tur için kim kazanırsa onun puanını artırınız.(playerScore, computerScore)
-            //Her tur sonunda kimin kazandığını yada beraber olma durumunu bilgilendiriniz ve aynı zamanda scorelarıda ekrana yazdırınız.
-            //Her tur bittikten sonra yeni tur başladığında ise console ekranını temizleyiniz.
-            //Kullanıcı çıkış tuşuna bastığında console'u kapatınız.
+            
             int playerScore = 0;
             int computerScore = 0;
-            while (true)//sonsuz döngü
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Rock - Paper - Scissors");
@@ -48,7 +44,7 @@ namespace RockPaperScissorsV2
                 }
                 Console.WriteLine($"Your choose {playerMove}");
                 Random rnd = new Random();
-                int random = rnd.Next(3);//0,1,2
+                int random = rnd.Next(3);
                 string computerMove = "";
                 switch (random)
                 {
@@ -63,17 +59,17 @@ namespace RockPaperScissorsV2
                         break;
                 }
                 Console.WriteLine($"Computer choose {computerMove}");
-                if ((computerMove == "paper" && playerMove == "rock") || (computerMove == "scissors" && playerMove == "paper") || (computerMove == "rock" && playerMove == "scissors"))//bilgisayarın kazandığı durumlar
+                if ((computerMove == "paper" && playerMove == "rock") || (computerMove == "scissors" && playerMove == "paper") || (computerMove == "rock" && playerMove == "scissors"))
                 {
                     computerScore++;
                     Console.WriteLine("You lose. Computer wins!");
                 }
-                else if ((playerMove == "rock" && computerMove == "scissors") || (playerMove == "paper" && computerMove == "rock") || (playerMove == "scissors" && computerMove == "paper"))//oyuncunun kazandığı durumlar
+                else if ((playerMove == "rock" && computerMove == "scissors") || (playerMove == "paper" && computerMove == "rock") || (playerMove == "scissors" && computerMove == "paper"))
                 {
                     playerScore++;
                     Console.WriteLine("You win! Computer lose.");
                 }
-                else//berabere
+                else
                 {
                     Console.WriteLine("This game was a draw.");
                 }
